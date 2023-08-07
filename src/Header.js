@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
         {username && (
           <>
             <Link to="/create">Create new post</Link>
-            <a onClick={logout}>Logout</a>
+            <a onClick={logout}>Logout ({username})</a>
           </>
         )}
         {!username && (
