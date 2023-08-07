@@ -3,15 +3,22 @@ import Header from "./Header";
 import Article from "./Article";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
+import IndexPage from "./pages/IndexPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import { UserContextProvider } from "./UserContext";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Article />} />
-        <Route path={"/login"} element={<div>Login Page</div>} />
-      </Route>
-    </Routes>
+    <UserContextProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<IndexPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+      </Routes>
+    </UserContextProvider>
   );
 }
 
